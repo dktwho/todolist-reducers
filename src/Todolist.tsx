@@ -50,9 +50,9 @@ export function Todolist(props: PropsType) {
 
 
     return <div>
-        <h3> <EditableSpan value={props.title} onChange={changeTodolistTitle} />
+        <h3><EditableSpan value={props.title} onChange={changeTodolistTitle}/>
             <IconButton onClick={removeTodolist}>
-                <Delete />
+                <Delete/>
             </IconButton>
         </h3>
         <AddItemForm addItem={addTask}/>
@@ -66,11 +66,12 @@ export function Todolist(props: PropsType) {
 
 
                     return <div key={t.id} className={t.isDone ? "is-done" : ""}>
-                        <SuperCheckbox checked={t.isDone}  callback={(newIsDoneValue) => onChangeHandler(t.id, newIsDoneValue)}  />
+                        <SuperCheckbox checked={t.isDone}
+                                       callback={(newIsDoneValue) => onChangeHandler(t.id, newIsDoneValue)}/>
 
-                        <EditableSpan value={t.title} onChange={onTitleChangeHandler} />
+                        <EditableSpan value={t.title} onChange={onTitleChangeHandler}/>
                         <IconButton onClick={onClickHandler}>
-                            <Delete />
+                            <Delete/>
                         </IconButton>
                     </div>
                 })

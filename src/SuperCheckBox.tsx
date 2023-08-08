@@ -6,7 +6,7 @@ export type PropsType = {
     callback: (newIsDoneValue: boolean) => void
 }
 export const SuperCheckBox = (props: PropsType) => {
-    const onChangeHandler = (e: ChangeEvent<HTMLInputElement> ) => {
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         props.callback(e.currentTarget.checked)
     }
 
