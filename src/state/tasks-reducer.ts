@@ -18,6 +18,7 @@ type ActionsType =
 
 const initialState: TasksStateType = {}
 
+
 export const tasksReducer = (state = initialState, action: ActionsType) => {
     switch (action.type) {
         case 'REMOVE-TASK':
