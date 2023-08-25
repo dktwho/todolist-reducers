@@ -1,5 +1,4 @@
 import React from 'react';
-import {FilterValuesType} from './App';
 import {AddItemForm} from './AddItemForm';
 import {EditableSpan} from './EditableSpan';
 import {Delete} from "@mui/icons-material";
@@ -46,10 +45,10 @@ export function TodolistWithRedux({todolists}: PropsType) {
     const onCompletedClickHandler = () => dispatch(changeTodolistFilterAC(id, 'completed'))
 
     if (filter === "active") {
-        tasks = tasks.filter(t => t.isDone === false);
+        tasks = tasks.filter(t => t.isDone);
     }
     if (filter === "completed") {
-        tasks = tasks.filter(t => t.isDone === true);
+        tasks = tasks.filter(t => !t.isDone);
     }
 
     const onChangeHandler = (tID: string, newIsDoneValue: boolean) => {

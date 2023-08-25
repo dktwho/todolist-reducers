@@ -1,19 +1,19 @@
-import React, {useReducer} from 'react';
+import React from 'react';
 import './App.css';
-import {TaskType, Todolist} from './Todolist';
+import {TaskType} from './Todolist';
 import {v1} from 'uuid';
 import {AddItemForm} from './AddItemForm';
 import AppBar from '@mui/material/AppBar/AppBar';
 import {Button, Container, Grid, IconButton, Paper, Toolbar, Typography} from "@mui/material";
 import {Menu} from "@mui/icons-material";
-import {addTaskAC, changeTaskStatusAC, changeTaskTitleAC, removeTaskAC, tasksReducer} from "./state/tasks-reducer";
+import {addTaskAC, changeTaskStatusAC, changeTaskTitleAC, removeTaskAC} from "./state/tasks-reducer";
 import {
     addTodolistAC,
     changeTodolistFilterAC,
     changeTodolistTitleAC,
     removeTodolistAC,
-    todolistsReducer
 } from "./state/todolists-reducer";
+
 import {AppRootStateType} from "./state/store";
 import {useDispatch, useSelector} from "react-redux";
 import {TodolistWithRedux} from "./TodolistWithRedux";
@@ -43,7 +43,7 @@ function AppWithRedux() {
     let todolistId2 = v1();
 
     let todolists = useSelector<AppRootStateType, Array<TodolistType>>(state => state.todolists)
-    let tasks = useSelector<AppRootStateType, TasksStateType>(state => state.tasks)
+    // let tasks = useSelector<AppRootStateType, TasksStateType>(state => state.tasks)
 
     const dispatch = useDispatch()
 
@@ -131,7 +131,6 @@ function AppWithRedux() {
                 <Grid container spacing={3}>
                     {
                         todolists.map(tl => {
-
 
                             return <Grid key={tl.id} item>
                                 <Paper style={{padding: "10px"}}>
