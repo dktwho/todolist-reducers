@@ -25,7 +25,7 @@ type PropsType = {
 
 export function TodolistWithRedux({todolists}: PropsType) {
     const {id, title, filter} = todolists
-    const tasks = useSelector<AppRootStateType, Array<TaskType>>(state => state.tasks[id])
+    let tasks = useSelector<AppRootStateType, Array<TaskType>>(state => state.tasks[id])
     const dispatch = useDispatch()
     const addTask = (title: string) => {
         // props.addTask(title, props.id);
@@ -44,6 +44,13 @@ export function TodolistWithRedux({todolists}: PropsType) {
     const onAllClickHandler = () => dispatch(changeTodolistFilterAC(id, 'all'))
     const onActiveClickHandler = () => dispatch(changeTodolistFilterAC(id, 'active'))
     const onCompletedClickHandler = () => dispatch(changeTodolistFilterAC(id, 'completed'))
+
+    if (filter === "active") {
+        tasks = tasks.filter(t => t.isDone === false);
+    }
+    if (filter === "completed") {
+        tasks = tasks.filter(t => t.isDone === true);
+    }
 
     const onChangeHandler = (tID: string, newIsDoneValue: boolean) => {
         // props.changeTaskStatus(tID, newIsDoneValue, props.id);

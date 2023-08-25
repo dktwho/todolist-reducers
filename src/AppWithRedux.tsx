@@ -131,15 +131,7 @@ function AppWithRedux() {
                 <Grid container spacing={3}>
                     {
                         todolists.map(tl => {
-                            let allTodolistTasks = tasks[tl.id];
-                            let tasksForTodolist = allTodolistTasks;
 
-                            if (tl.filter === "active") {
-                                tasksForTodolist = allTodolistTasks.filter(t => t.isDone === false);
-                            }
-                            if (tl.filter === "completed") {
-                                tasksForTodolist = allTodolistTasks.filter(t => t.isDone === true);
-                            }
 
                             return <Grid key={tl.id} item>
                                 <Paper style={{padding: "10px"}}>
